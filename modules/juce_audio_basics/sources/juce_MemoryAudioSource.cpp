@@ -34,6 +34,11 @@ MemoryAudioSource::MemoryAudioSource (AudioBuffer<float>& bufferToUse, bool copy
                                  bufferToUse.getNumSamples());
 }
 
+MemoryAudioSource::MemoryAudioSource (AudioBuffer<float>&& bufferToUse, bool shouldLoop)
+    : buffer (bufferToUse), isCurrentlyLooping (shouldLoop)
+{
+}
+
 //==============================================================================
 void MemoryAudioSource::prepareToPlay (int /*samplesPerBlockExpected*/, double /*sampleRate*/)
 {

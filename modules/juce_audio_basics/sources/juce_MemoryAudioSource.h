@@ -42,6 +42,13 @@ public:
     */
     MemoryAudioSource (AudioBuffer<float>& audioBuffer, bool copyMemory, bool shouldLoop = false);
 
+    /**  Creates a MemoryAudioSource by providing an audio buffer.
+
+        The buffer will be moved into an internal buffer which will be owned
+        by the MemoryAudioSource.
+    */
+    MemoryAudioSource (AudioBuffer<float>&& audioBuffer, bool shouldLoop = false);
+
     //==============================================================================
     /** Implementation of the AudioSource method. */
     void prepareToPlay (int samplesPerBlockExpected, double sampleRate) override;
